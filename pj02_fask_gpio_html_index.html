@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LED Controller</title>
+<meta name="viewport" content="width=200, initial-scale=1, maximum-scale=1">
+<script type="text/javascript">
+function command(value) {
+    if ( window.XMLHttpRequest ) {
+        request = new XMLHttpRequest();
+    }
+    if ( !request ) {
+        alert("XMLHttpRequest Error");
+        return false;
+    }
+    var send = 'command=' + value;
+    
+    request.open('POST','/led',true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.setRequestHeader('Content-Length', send.length);
+    request.setRequestHeader('Connection', 'close');
+    request.send(send);
+}
+function reloadrefresh()
+{
+    window.location.href='/'
+} 
+</script>
+<style>
+input[type=button] { background-color: #00ff00; border: none; color: black; padding: 5px 30px; 
+text-decoration: none; font-size: 15px; margin: 2px; cursor: pointer;}
+input[type=button1] { background-color: #ff0000; border: none; color: white; padding: 5px 30px; 
+text-decoration: none; font-size: 15px; margin: 2px; cursor: pointer;}
+input[type=button2] { background-color: #0000ff; border: none; color: white; padding: 5px 30px; 
+text-decoration: none; font-size: 15px; margin: 2px; cursor: pointer;}
+</style>
+</head>
+<body>
+<div align="center" style="margin: 0 0 10px 10px">
+<h2>Button State
+{% if btnState %}
+=Up
+{% else %}
+=Down
+{% endif %}
+<input type="button" onClick="reloadrefresh()" value="Reload(Refresh)"/>
+</h2>
+<ul >
+<!-- <input type="button" style=font-size:20pt;width:70;height:60; value="&uarr;" onClick="command('rledON')"> -->
+<input type="button1" style=font-size:16pt;width:180;height:60; value="R-LED ON" onClick="command('rledON')"> 
+<!-- <input type="button" style=font-size:20pt;width:70;height:60 value="&larr;" onClick="command('rledOFF')"> -->
+<input type="button2" style=font-size:16pt;width:180;height:60 value="R-LED OFF" onClick="command('rledOFF')"> 
+</ul> 
+</div>
+<meta http-equiv="refresh" content="2">
+</body>
+</html>
