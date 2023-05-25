@@ -22,7 +22,7 @@ while(True):
         countButtonDown = countButtonDown + 1
         print("CountButtonDown = %d, DatetimeNow = %s" % (countButtonDown, dt.datetime.now()))
         # CREATE with INSERT statement
-        conn = sqlite3.connect('/home/euporiacosmos/python/DB/buttonDB.db')
+        conn = sqlite3.connect('/home/[USER NAME]/python/DB/buttonDB.db')
         c = conn.cursor()
         c.execute("INSERT INTO bStatesTable (bState, bValue, date) VALUES (?, ?, datetime('now','localtime'))", ('on', 1))
         conn.commit()
