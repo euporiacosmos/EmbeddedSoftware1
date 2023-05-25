@@ -1,24 +1,24 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as gpio
 
 # constant is better than variable this case
 BUTTON = 4
-RED = 18
+LED = 18
 
-def initLeds():
-    GPIO.setwarnings(False)
-    GPIO.setmode(GPIO.BCM)
+def init():
+    gpio.setwarnings(False)
+    gpio.setmode(gpio.BCM)
 
     # Pin input setup
-    GPIO.setup(BUTTON, GPIO.IN)
+    gpio.setup(BUTTON, gpio.IN)
 
     # Pin output setup
-    GPIO.setup(RED, GPIO.OUT)
+    gpio.setup(LED, gpio.OUT)
 
-def redOn():
-    GPIO.output(RED, True)
+def ledOn():
+    gpio.output(LED, True)
 
-def redOff():
-    GPIO.output(RED, False)
+def ledOff():
+    gpio.output(LED, False)
 
 def readButton():
-    return GPIO.input(BUTTON)
+    return gpio.input(BUTTON)

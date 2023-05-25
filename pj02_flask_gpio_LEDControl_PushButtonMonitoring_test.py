@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request
 from pj02_flask_gpio_html_gpioControl import *
 
 app = Flask(__name__, template_folder='.')
 
 @app.route('/')
 def do_route():
+    init()
     valPushButton = readButton()
     return render_template("pj02_flask_gpio_html_index.html", btnState=valPushButton)
 
@@ -13,12 +14,13 @@ def do_route():
 def control_led():
     command=request.form.get('command')
     #print(command)
-    if command == "rledON":
-        redOn()
-    elif command == "rledOFF":
-        redOff()
+    if command == "ledON":
+        ledOn()
+    elif command == "ledOFF":
+        ledOff()
+        s
     return ''
 
 
 if __name__ == '__main__': # Program start from here
-    app.run(host='192.168.0.2', port=8080)
+    app.run(host='[IP Address]', port=[PORT NUMBER])
