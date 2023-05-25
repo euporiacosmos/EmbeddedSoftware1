@@ -9,7 +9,7 @@ def init():
     gpio.setmode(gpio.BCM)
 
     # Pin input setup
-    gpio.setup(BUTTON, gpio.IN)
+    gpio.setup(BUTTON, gpio.IN, pull_up_down = gpio.PUD_UP)
 
     # Pin output setup
     gpio.setup(LED, gpio.OUT)
