@@ -10,8 +10,8 @@ old_valPushButton = True
 
 while(True):
     valPushButton = gpio.input(4)
-    if(valPushButton == False):
-        gpio.output(18, False) # LED OFF
+    if not valPushButton:
+        gpio.output(18, True) # LED OFF
         countButtonDown = countButtonDown + 1 # '+=' does not work
     
     old_valPushButton = valPushButton
