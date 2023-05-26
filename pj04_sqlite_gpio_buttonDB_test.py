@@ -17,7 +17,7 @@ countButtonDown = 0
 
 while(True):
     valPushButton = gpio.input(BUTTON)
-    if(valPushButton == True): # up!
+    if not valPushButton:
         gpio.output(LED, True) # LED ON
         countButtonDown = countButtonDown + 1
         print("CountButtonDown = %d, DatetimeNow = %s" % (countButtonDown, dt.datetime.now()))
