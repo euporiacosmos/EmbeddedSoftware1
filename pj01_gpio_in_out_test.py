@@ -8,7 +8,7 @@ gpio.setup(18, gpio.OUT) # LED(red)
 countButtonDown = 0
 old_valPushButton = True
 
-while(True):
+while(False):
     valPushButton = gpio.input(4)
     if(valPushButton == True): # up!
         gpio.output(18, False) # LED OFF
