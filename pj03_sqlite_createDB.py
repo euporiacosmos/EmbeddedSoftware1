@@ -15,8 +15,7 @@ conn.close()
 #===SELECT
 conn = sqlite3.connect('/home/[USER NAME]/python/DB/buttonDB.db')
 c = conn.cursor()
-#c.execute("SELECT * FROM bStatesTable WHERE date BETWEEN '2022-01-01 10:10:10' AND DATETIME('now')")
-c.execute("SELECT * FROM bStatesTable WHERE date BETWEEN '2022-01-01 10:10:10' AND DATETIME('now','localtime')")
+c.execute("SELECT * FROM bStatesTable")
 results = c.fetchall()
 conn.close()
 
