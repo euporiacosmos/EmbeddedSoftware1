@@ -18,7 +18,6 @@ def control_led():
         ledOn()
     elif command == "ledOFF":
         ledOff()
-        s
     return ''
 
 
